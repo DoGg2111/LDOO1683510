@@ -1,0 +1,35 @@
+<html>
+   <body>
+       <head>
+           <title>Formulario JSP</title>
+           <style>
+               div{
+                background-color:#2E64FE;
+                width: 100%;
+                height: 60px;
+                left: 0px;
+                top: 0px;
+        	text-align: center;
+                z-index: 3;
+                }
+                p{
+                    font-family: sans-serif;
+                    color: blue;
+                }
+                body{
+                    background-color: silver; 
+                }
+            
+           </style>
+       </head>
+       <div id="navibar"><h1>Formulario JSP</h1></div>
+      <form action = "main.jsp" method = "POST">
+          <p>Correo Electronico: </p><input type = "text" name = "correo"/>
+          <p>Contraseña: </p><input type = "text" name = "contra" />
+          <p>Fecha de Nacimiento: </p><input type = "date" name = "fecha"/>
+          <p>Telefono: </p><input type = "text" name = "telefono" />
+          <input type = "submit" value = "Submit" />
+      </form>
+      
+   </body>
+</html>
