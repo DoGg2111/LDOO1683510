@@ -6,7 +6,7 @@
 package Modelo;
 
 import Java.User;
-import Controlador.Autenticacion;
+import Controlador.DB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -37,16 +37,13 @@ public class RegistroUser extends HttpServlet {
             us.tipoSubs = request.getParameter("tipoSubs");
             us.domicilio = request.getParameter("domicilio");
 
-            Autenticacion consulta = new Autenticacion();
+            DB consulta = new DB();
             consulta.registroUser(user, pass, email, fechaNac,tipo_Usuario,tipoSubs, domicilio);
                       
             HttpSession session = request.getSession();
-            session.setMaxInactiveInterval(60*5);
+           
 
             session.setAttribute("Usuario", User);
-
-
-            response.sendRedirect("Login.jsp?tipo_Usuario=Usuario");
             
         }
     }

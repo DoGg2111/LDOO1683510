@@ -6,7 +6,7 @@
 package Modelo;
 
 import Java.Invitado;
-import Controlador.Autenticacion;
+import Controlador.DB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -37,15 +37,13 @@ public class RegistroInvitado extends HttpServlet {
             inv.FechaRegistro = request.getParameter("fechaRegistro");
        
 
-            Autenticacion consulta = new Autenticacion();
+            DB consulta = new DB();
             consulta.RegistroInvitado(user, pass, email, fechaNac,tipo_Usuario,FechaRegistro);
                       
             HttpSession session = request.getSession();
-            session.setMaxInactiveInterval(60*5);
+           
 
             session.setAttribute("Invitado", Invitado);
-
-            response.sendRedirect("Login.jsp?tipo_Usuario=Invitado");
         }
     }
 

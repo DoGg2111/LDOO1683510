@@ -6,7 +6,7 @@
 package Modelo;
 
 import Java.Admin;
-import Controlador.Autenticacion;
+import Controlador.DB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -37,15 +37,13 @@ public class RegistroAdmin extends HttpServlet {
             ad.num_Empledo = request.getParameter("numEmpleado");
        
 
-            Autenticacion consulta = new Autenticacion();
+            DB consulta = new DB();
             consulta.RegistroAdmin(user, pass, email, fechaNac,tipo_Usuario,numEmpleado);
                       
             HttpSession session = request.getSession();
-            session.setMaxInactiveInterval(60*5);
+        
 
             session.setAttribute("Admin", Admin);
-
-            response.sendRedirect("Login.jsp?tipo_Usuario=Admin");
         }
     }
 
